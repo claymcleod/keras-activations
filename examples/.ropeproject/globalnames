@@ -1,0 +1,31 @@
+€}q(Ureuters_mlp]q(U	tokenizerqU	max_wordsqUX_trainqUscoreqUY_trainqUX_testqU
+batch_sizeq	Uy_testq
+U
+nb_classesqUmodelqUhistoryqUnb_epochqUY_testqUy_trainqeUstateful_lstm]q(UcosqUiUexpected_outputqh	UepochsqUlaheadqUgen_cosine_ampqUtstepsqhUpredicted_outputqeUquorum]q(Upreprocess_labelsqUscalerqUlabelsqUprobaqhUpreprocess_dataqUencoderqUdimsq Ustepq!UXhU	load_dataq"Uidsq#Umake_submissionq$UyheUmnist_transfer_cnn]q%(UX_train_gte5q&Uy_test_gte5q'Unb_convq(U
+nb_filtersq)Uimg_colsq*U
+y_test_lt5q+hU
+X_test_lt5q,hUy_train_lt5q-Ufeature_layersq.h
+hUnb_poolq/h	UX_test_gte5q0Utrain_modelq1UX_train_lt5q2Unowq3Uclassification_layersq4hUlUy_train_gte5q5hhUimg_rowsq6eU	imdb_lstm]q7(Uaccq8hhh	hh
+Umax_featuresq9hhUmaxlenq:eUkaggle_otto_nn]q;(hhhhhhhh UXhh"h#h$UyheUimdb_cnn]q<(Ufilter_lengthq=hh9Uembedding_dimsq>hU	nb_filterq?h
+hUhidden_dimsq@h	h:hheUaddition_rnn]qA(UCharacterTableqBUsentenceqCUrowXqDUansqEUcolorsqFhU	questionsqGUqueryqHUseenqIUDIGITSqJUguessqKhUindicesqLUctableqMUsplit_atqNU
+BATCH_SIZEqOUMAXLENqPUX_valqQUHIDDEN_SIZEqRUcorrectqSULAYERSqTUpredsqUUcharsqVUexpectedqWUindqXUkeyqYUXUaUbURNNqZUfUiUINVERTq[U	iterationq\UqUy_valq]Urowyq^UyhUTRAINING_SIZEq_eU	mnist_mlp]q`(Urmsqahhhhhh	h
+hhhheUantirectifier]qb(hh
+hh	hUAntirectifierqchhhhheU	mnist_cnn]qd(h(h)h*hhhhh
+hhh/h	hhhh6eUimdb_cnn_lstm]qe(Uembedding_sizeqfh=hhh9Upool_lengthqghhh?h
+hh	Ulstm_output_sizeqhh8h:heUbabi_rnn]qi(U
+vocab_sizeqjUtarqkUtYqlUqrnnqmUEPOCHSqnUQUERY_HIDDEN_SIZEqoUXUquery_maxlenqpUstory_maxlenqqUparse_storiesqrUSENT_HIDDEN_SIZEqsUtXqtUget_storiesquhOUtokenizeqvh8UtestqwUvectorize_storiesqxUtrainqyUYUpathqzUvocabq{Ulossq|Uword_idxq}hZUsentrnnq~UEMBED_HIDDEN_SIZEqU	challengeq€hUXqqUtXqq‚eU
+deep_dream]qƒ(Ucontinuity_lossq„Uparserq…U	img_widthq†Ubase_image_pathq‡UshapeqˆU
+img_heightq‰Urandom_jitterqŠUgradsq‹Ufirst_layerqŒUimgqUpreprocess_imageqUfnameqUoutputsqU
+start_timeq‘U	f_outputsq’Usaved_settingsq“Uweights_pathq”Udeprocess_imageq•Uargsq–U
+layer_nameq—h|U	evaluatorq˜U
+layer_dictq™U	EvaluatorqšUresult_prefixq›UinfoqœUeval_loss_and_gradsqUgUsettingsqUiUkUfUmin_valqŸUweightsq Uend_timeq¡UxhUdreamq¢Ucoeffq£eUneural_style_transfer]q¤(Ucombination_featuresq¥Ustyle_reference_featuresq¦h…h†h‡U
+style_lossq§Uinput_tensorq¨h‹hŒUslq©Ucontent_lossqªUtotal_variation_weightq«Ubase_image_featuresq¬h.hhhUoutputs_dictq­U
+base_imageq®Ucontent_weightq¯h‘Utotal_variation_lossq°h’Ucombination_imageq±h”h•h–Ulayer_featuresq²hUstyle_reference_image_pathq³h—h|h˜hšh›hœhUgram_matrixq´UgUstyle_reference_imageqµUfUiUkUstyle_weightq¶hŸh‰h h¡UxheUlstm_text_generation]q·(U
+next_indexq¸U	next_charq¹hCUtextqºUcharq»U	sentencesq¼hUUstart_indexq½Uindices_charq¾U	diversityq¿hVUchar_indicesqÀh!UXhUsampleqÁU
+next_charsqÂUih\U	generatedqÃh:UtUyUxhzeU
+babi_memnn]qÄ(hjhkUtrain_storiesqÅU
+challengesqÆUinputs_testqÇhpUanswers_testqÈhrUanswerqÉUtest_storiesqÊhuhvUqueries_trainqËUinput_encoder_cqÌhxUinput_encoder_mqÍUanswers_trainqÎUinputs_trainqÏhzUresponseqĞh{h}hqUchallenge_typeqÑh€Uquestion_encoderqÒUqueries_testqÓUmatchqÔeU
+mnist_irnn]qÕ(hU	nb_epochsqÖhh
+hhUlearning_rateq×h	UscoresqØUhidden_unitsqÙhU	clip_normqÚhhUrmspropqÛeUcifar10_cnn]qÜ(Udata_augmentationqİh*hUsgdqŞhh
+hhh	UdatagenqßUimg_channelsqàhhhhh6eUquorum-thresh]qá(hhhhhhhh h!UXhh"h#h$UyheUimdb_bidirectional_lstm]qâ(h8hh	h
+h9hhh:heu.

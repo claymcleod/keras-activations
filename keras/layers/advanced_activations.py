@@ -222,3 +222,65 @@ class ThresholdedReLU(MaskedLayer):
                   "theta": self.theta}
         base_config = super(ThresholdedReLU, self).get_config()
         return dict(list(base_config.items()) + list(config.items()))
+
+
+class Quorum(MaskedLayer):
+    '''
+    # Input shape
+        Arbitrary. Use the keyword argument `input_shape`
+        (tuple of integers, does not include the samples axis)
+        when using this layer as the first layer in a model.
+
+    # Output shape
+        Same shape as the input.
+
+    # Arguments:
+
+    # References:
+    '''
+    def __init__(self, activation_fns, activation_weights_init=None,
+                    trainable=True, threshold=None, **kwargs):
+        self.activation_fns = activation_fns
+        self.activation_weights_init = activation_weights_init
+        self.trainable = trainable
+        self.threshold = threshold
+
+        assert(len(self.activation_fns) > 0),("Must have at least one "
+                                              "activation function!")
+
+        if self.activation_weights_init is None:
+            starting_weight = 1. / len(self.activation_fns)
+            self.activation_weights_init = [starting_weight for x in xrange(len(self.activation_fns))]
+
+        assert (len(self.activation_fns) ==
+                len(self.activation_weights_init)),("Must have the same number "
+                                                    "of activation functions "
+                                                    "and weights!")
+        super(Quorum, self).__init__(**kwargs)
+
+
+    def build(self):
+        input_shape = self.input_shape[1:]
+        self.activation_weights = [K.variable(init_val * np.ones(input_shape))
+                                   for init_val in self.activation_weights_init]
+
+        if self.trainable:
+            self.params = self.activation_weights
+
+    def get_output(self, train):
+        X = self.get_input(train)
+        Y_ = X
+
+        for (fn, w) in zip(self.activation_fns, self.activation_weights):
+            if self.threshold:
+                Y_ = Y_ + K.clip(w, -self.threshold, self.threshold) * fn(X)
+            else:
+                Y_ = Y_ + w * fn(X)
+        return Y_
+
+    def get_config(self):
+        config = {"name": self.__class__.__name__,
+                  "fns": self.activation_fns,
+                  "weights": self.activation_weights}
+        base_config = super(Quorum, self).get_config()
+        return dict(list(base_config.items()) + list(config.items()))

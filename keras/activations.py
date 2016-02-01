@@ -45,6 +45,8 @@ def linear(x):
     '''
     return x
 
+def step(x, alpha=0):
+    return K.switch(alpha, 0, 1)
 
 from .utils.generic_utils import get_from_module
 def get(identifier):

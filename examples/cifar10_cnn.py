@@ -16,9 +16,11 @@ from keras.datasets import cifar10
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation, Flatten
+from keras.layers.advanced_activations import Quorum
 from keras.layers.convolutional import Convolution2D, MaxPooling2D
 from keras.optimizers import SGD
 from keras.utils import np_utils
+from keras import backend as K
 
 batch_size = 32
 nb_classes = 10
@@ -44,22 +46,21 @@ model = Sequential()
 
 model.add(Convolution2D(32, 3, 3, border_mode='same',
                         input_shape=(img_channels, img_rows, img_cols)))
-model.add(Activation('relu'))
+model.add(Quorum([K.relu, K.softplus]))
 model.add(Convolution2D(32, 3, 3))
-model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 
 model.add(Convolution2D(64, 3, 3, border_mode='same'))
-model.add(Activation('relu'))
+model.add(Quorum([K.relu, K.softplus]))
 model.add(Convolution2D(64, 3, 3))
-model.add(Activation('relu'))
+model.add(Quorum([K.relu, K.softplus]))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 
 model.add(Flatten())
 model.add(Dense(512))
-model.add(Activation('relu'))
+model.add(Quorum([K.relu, K.softplus]))
 model.add(Dropout(0.5))
 model.add(Dense(nb_classes))
 model.add(Activation('softmax'))
