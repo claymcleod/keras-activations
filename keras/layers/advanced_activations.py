@@ -273,8 +273,10 @@ class Quorum(MaskedLayer):
 
         for (fn, w) in zip(self.activation_fns, self.activation_weights):
             if self.threshold:
-                Y_ = Y_ + K.clip(w, -self.threshold, self.threshold) * fn(X)
+                print("Threshold!")
+                Y_ = Y_ + K.clip(w, 0, self.threshold) * fn(X)
             else:
+                print("Not threshold!")
                 Y_ = Y_ + w * fn(X)
         return Y_
 
